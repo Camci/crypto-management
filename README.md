@@ -35,23 +35,29 @@ A modern, full-featured cryptocurrency trading and portfolio management platform
 
 ### Frontend Framework
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white) **Next.js 15** - React framework with App Router
+
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) **React 19** - UI library with hooks and modern patterns
 
 ### Language & Styling
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white) **TypeScript** - Type-safe development
+
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwind-css&logoColor=white) **Tailwind CSS** - Utility-first CSS framework
 
 ### UI Components & Charts
 ![Radix UI](https://img.shields.io/badge/Radix_UI-000000?style=flat&logo=radix-ui&logoColor=white) **Radix UI** (Shadcn)- Unstyled, accessible UI primitives
+
 ![Recharts](https://img.shields.io/badge/Recharts-FF6B6B?style=flat&logo=chart.js&logoColor=white) **Recharts** - Composable charting library for React
+
 ![Lucide React](https://img.shields.io/badge/Lucide-F56565?style=flat&logo=lucide&logoColor=white) **Lucide React** - Beautiful & consistent icon pack
 
 ### Data & API
 ![CoinPaprika](https://img.shields.io/badge/CoinPaprika-1E40AF?style=flat&logo=bitcoin&logoColor=white) **CoinPaprika API** - Real-time cryptocurrency data
+
 ![Fetch API](https://img.shields.io/badge/Fetch_API-4285F4?style=flat&logo=google-chrome&logoColor=white) **Modern Fetch** - HTTP client with error handling
 
 ### Development Tools
 ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat&logo=eslint&logoColor=white) **ESLint** - Code linting and formatting
+
 ![PostCSS](https://img.shields.io/badge/PostCSS-DD3A0A?style=flat&logo=postcss&logoColor=white) **PostCSS** - CSS processing and optimization
 
 ## 🚀 Quick Start
