@@ -97,6 +97,7 @@ npm start
 ## 📱 Platform Overview
 
 ### 1. 📊 Dashboard
+![1- Dashboard](https://github.com/user-attachments/assets/99e917fa-c317-4eed-b9a4-6c5d0d00bc55)
 
 
 **Key Features:**
@@ -109,6 +110,7 @@ npm start
 - **Quick Actions** - One-click strategy execution
 
 ### 2. 💼 Portfolio
+![2- portfolio](https://github.com/user-attachments/assets/9c11ce25-9ce0-4c57-87e0-f71a3a6c6427)
 
 
 
@@ -121,6 +123,7 @@ npm start
 - **Asset Management** - Individual asset performance metrics
 
 ### 3. 📈 Trading
+![3-trading](https://github.com/user-attachments/assets/ea865374-fbd0-407e-915e-d95c47d04ce2)
 
 
 **Key Features:**
@@ -132,6 +135,7 @@ npm start
 - **Technical Analysis** - Professional trading indicators and tools
 
 ### 4. 🌍 Market
+![4-Market](https://github.com/user-attachments/assets/60878bfc-35ba-474f-a92e-ea0b8650640a)
 
 **Key Features:**
 - **Global Market Stats** - Total market cap, volume, and dominance metrics
@@ -142,6 +146,7 @@ npm start
 - **Market Analysis** - Price trends and volume analysis
 
 ### 5. 💳 Wallet
+![5-wallet](https://github.com/user-attachments/assets/471ded2d-1fd1-4a70-af4b-d484a937d316)
 
 **Key Features:**
 - **Multi-Asset Support** - Support for major cryptocurrencies
@@ -152,6 +157,7 @@ npm start
 - **Address Management** - Multiple address support per asset
 
 ### 6. 🏦 Staking
+![6-staking](https://github.com/user-attachments/assets/3299b0e2-53ba-45ae-ac55-e448b0306bd1)
 
 **Key Features:**
 - **Multiple Staking Pools** - Various cryptocurrencies with different APY rates
@@ -162,6 +168,7 @@ npm start
 - **Pool Information** - Detailed pool stats and requirements
 
 ### 7. 💳 Cards
+![7-cards](https://github.com/user-attachments/assets/10b1312e-7eed-47bf-9be0-56e3a20bf053)
 
 **Key Features:**
 - **Crypto Debit Cards** - Spend cryptocurrency anywhere
@@ -172,6 +179,7 @@ npm start
 - **Integration** - Seamless connection with portfolio and wallet
 
 ### 8. 🔍 Search Functionality
+![8-searchFunctionality](https://github.com/user-attachments/assets/81066d26-1856-4967-8cce-f87cdf8d3582)
 
 **Key Features:**
 - **Global Search** - Search across all cryptocurrencies and features
@@ -182,6 +190,7 @@ npm start
 - **Advanced Filters** - Custom search criteria and sorting options
 
 ### 9. 🌙 Theme Toggle (Dark/Light Mode)
+![9-themeToggle](https://github.com/user-attachments/assets/1e49b2bd-c757-465d-a20d-ccee3a59e34a)
 
 **Key Features:**
 - **Seamless Switching** - Instant theme changes without page reload
