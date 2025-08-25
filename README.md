@@ -1,6 +1,6 @@
 # 🚀 Crypto Platform
 
-A modern, full-featured cryptocurrency trading and portfolio management platform built with Next.js 14 and TypeScript. Experience professional-grade crypto trading with real-time data, advanced charting, and intelligent portfolio insights.
+A modern, full-featured cryptocurrency trading and portfolio management platform built with Next.js 15 and TypeScript. Experience professional-grade crypto trading with real-time data, advanced charting, and intelligent portfolio insights.
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -204,7 +204,7 @@ npm start
 
 ```
 crypto-platform/
-├── app/                    # Next.js 14 App Router
+├── app/                    # Next.js 15 App Router
 │   ├── cards/             # Crypto cards management
 │   ├── market/            # Market data and analysis
 │   ├── portfolio/         # Portfolio tracking
