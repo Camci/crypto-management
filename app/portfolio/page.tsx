@@ -117,33 +117,33 @@ export default function PortfolioPage() {
 
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between animate-fade-in-up delay-100">
+    <div className="space-y-4 md:space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 animate-fade-in-up delay-100">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Portfolio</h1>
-          <p className="text-muted-foreground">Manage and track your cryptocurrency investments</p>
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Portfolio</h1>
+          <p className="text-sm md:text-base text-muted-foreground">Manage and track your cryptocurrency investments</p>
         </div>
         <div className="flex gap-2">
-          <Button variant="outline" className="cursor-pointer">
-            <Download className="h-4 w-4 mr-2" />
+          <Button variant="outline" className="cursor-pointer text-xs md:text-sm">
+            <Download className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
             Export
           </Button>
-          <Button className="cursor-pointer">
-            <Upload className="h-4 w-4 mr-2" />
+          <Button className="cursor-pointer text-xs md:text-sm">
+            <Upload className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
             Deposit
           </Button>
         </div>
       </div>
 
       {/* Portfolio Summary */}
-      <div className="grid gap-6 md:grid-cols-4 animate-fade-in-up delay-200">
+      <div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 animate-fade-in-up delay-200">
         <Card className="transition-all duration-200 hover:shadow-md">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Balance</CardTitle>
-            <TrendingUp className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-xs md:text-sm font-medium">Total Balance</CardTitle>
+            <TrendingUp className="h-3 w-3 md:h-4 md:w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">${totalValue.toLocaleString()}</div>
+            <div className="text-xl md:text-2xl font-bold">${totalValue.toLocaleString()}</div>
             <div className={`flex items-center text-xs ${totalChangePercent >= 0 ? 'text-green-600' : 'text-red-600'}`}>
               {totalChangePercent >= 0 ? (
                 <ArrowUpRight className="h-3 w-3 mr-1" />
@@ -157,10 +157,10 @@ export default function PortfolioPage() {
 
         <Card className="transition-all duration-200 hover:shadow-md">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">24h Change</CardTitle>
+            <CardTitle className="text-xs md:text-sm font-medium">24h Change</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className={`text-2xl font-bold ${totalChange24h >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+            <div className={`text-xl md:text-2xl font-bold ${totalChange24h >= 0 ? 'text-green-600' : 'text-red-600'}`}>
               {totalChange24h >= 0 ? '+' : ''}${Math.abs(totalChange24h).toLocaleString()}
             </div>
             <div className="text-xs text-muted-foreground">
@@ -171,59 +171,59 @@ export default function PortfolioPage() {
 
         <Card className="transition-all duration-200 hover:shadow-md">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Assets</CardTitle>
+            <CardTitle className="text-xs md:text-sm font-medium">Assets</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{holdings.length}</div>
+            <div className="text-xl md:text-2xl font-bold">{holdings.length}</div>
             <div className="text-xs text-muted-foreground">Different cryptocurrencies</div>
           </CardContent>
         </Card>
 
-        <Card className="transition-all duration-200 hover:shadow-md">
+        <Card className="transition-all duration-200 hover:shadow-md sm:col-span-2 md:col-span-1">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Best Performer</CardTitle>
+            <CardTitle className="text-xs md:text-sm font-medium">Best Performer</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">BNB</div>
+            <div className="text-xl md:text-2xl font-bold">BNB</div>
             <div className="text-xs text-green-600">+2.14% (24h)</div>
           </CardContent>
         </Card>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3 animate-fade-in-up delay-300">
+      <div className="grid gap-4 md:gap-6 grid-cols-1 lg:grid-cols-3 animate-fade-in-up delay-300">
         {/* Portfolio Chart */}
         <Card className="lg:col-span-2 transition-all duration-200 hover:shadow-md">
           <CardHeader>
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div>
-                <CardTitle>Portfolio Performance</CardTitle>
-                <div className="flex items-center gap-2 mt-1">
-                  <span className="text-2xl font-bold">
+                <CardTitle className="text-lg md:text-xl">Portfolio Performance</CardTitle>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-1">
+                  <span className="text-xl md:text-2xl font-bold">
                     ${totalValue.toLocaleString()}
                   </span>
-                  <span className={`text-sm ${totalChangePercent >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                  <span className={`text-xs md:text-sm ${totalChangePercent >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                     {totalChangePercent >= 0 ? '+' : ''}{totalChangePercent.toFixed(2)}% (24h)
                   </span>
                 </div>
               </div>
               <Tabs value={timeframe} onValueChange={(value) => setTimeframe(value as any)}>
-                <TabsList>
-                  <TabsTrigger value="7D" className="cursor-pointer">7D</TabsTrigger>
-                  <TabsTrigger value="1M" className="cursor-pointer">1M</TabsTrigger>
-                  <TabsTrigger value="3M" className="cursor-pointer">3M</TabsTrigger>
-                  <TabsTrigger value="1Y" className="cursor-pointer">1Y</TabsTrigger>
+                <TabsList className="grid grid-cols-4 w-full sm:w-auto">
+                  <TabsTrigger value="7D" className="cursor-pointer text-xs md:text-sm">7D</TabsTrigger>
+                  <TabsTrigger value="1M" className="cursor-pointer text-xs md:text-sm">1M</TabsTrigger>
+                  <TabsTrigger value="3M" className="cursor-pointer text-xs md:text-sm">3M</TabsTrigger>
+                  <TabsTrigger value="1Y" className="cursor-pointer text-xs md:text-sm">1Y</TabsTrigger>
                 </TabsList>
               </Tabs>
             </div>
           </CardHeader>
           <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={250} className="sm:h-[300px]">
               <AreaChart data={portfolioChartData}>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                <XAxis dataKey="time" className="text-xs" tick={{ fontSize: 12 }} />
+                <XAxis dataKey="time" className="text-xs" tick={{ fontSize: 10 }} />
                 <YAxis 
                   className="text-xs" 
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 10 }}
                   tickFormatter={(value) => `$${formatPrice(value)}`}
                 />
                 <Tooltip
@@ -235,29 +235,29 @@ export default function PortfolioPage() {
                       const usdtValue = portfolioHoldings.usdt
                       
                       return (
-                        <div className="bg-background border rounded-lg p-3 shadow-lg">
-                          <p className="text-sm font-medium mb-2">{label}</p>
+                        <div className="bg-background border rounded-lg p-2 md:p-3 shadow-lg">
+                          <p className="text-xs md:text-sm font-medium mb-2">{label}</p>
                           <div className="space-y-1">
-                            <div className="flex items-center justify-between gap-4">
-                              <span className="text-sm">Total Portfolio:</span>
-                              <span className="font-bold">${totalValue.toLocaleString()}</span>
+                            <div className="flex items-center justify-between gap-2 md:gap-4">
+                              <span className="text-xs md:text-sm">Total Portfolio:</span>
+                              <span className="font-bold text-xs md:text-sm">${totalValue.toLocaleString()}</span>
                             </div>
-                            <div className="flex items-center justify-between gap-4">
-                              <div className="flex items-center gap-2">
+                            <div className="flex items-center justify-between gap-2 md:gap-4">
+                              <div className="flex items-center gap-1 md:gap-2">
                                 <div className="w-2 h-2 rounded-full bg-[#f7931a]" />
                                 <span className="text-xs">BTC:</span>
                               </div>
                               <span className="text-xs">${btcValue.toLocaleString()}</span>
                             </div>
-                            <div className="flex items-center justify-between gap-4">
-                              <div className="flex items-center gap-2">
+                            <div className="flex items-center justify-between gap-2 md:gap-4">
+                              <div className="flex items-center gap-1 md:gap-2">
                                 <div className="w-2 h-2 rounded-full bg-[#627eea]" />
                                 <span className="text-xs">ETH:</span>
                               </div>
                               <span className="text-xs">${ethValue.toLocaleString()}</span>
                             </div>
-                            <div className="flex items-center justify-between gap-4">
-                              <div className="flex items-center gap-2">
+                            <div className="flex items-center justify-between gap-2 md:gap-4">
+                              <div className="flex items-center gap-1 md:gap-2">
                                 <div className="w-2 h-2 rounded-full bg-[#26a17b]" />
                                 <span className="text-xs">USDT:</span>
                               </div>
@@ -301,65 +301,61 @@ export default function PortfolioPage() {
           </CardContent>
         </Card>
 
-        {/* Allocation Pie Chart */}
+        {/* Asset Allocation */}
         <Card className="transition-all duration-200 hover:shadow-md">
           <CardHeader>
-            <CardTitle>Asset Allocation</CardTitle>
-            <CardDescription>Portfolio distribution by value</CardDescription>
+            <CardTitle className="text-lg md:text-xl">Asset Allocation</CardTitle>
           </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={250}>
-              <PieChart>
-                <Pie
-                  data={allocationData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={40}
-                  outerRadius={80}
-                  paddingAngle={2}
-                  dataKey="value"
-                >
-                  {allocationData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip
-                  content={({ active, payload }) => {
-                    if (active && payload && payload.length) {
-                      const data = payload[0].payload
-                      return (
-                        <div className="bg-background border rounded-lg p-3 shadow-lg">
-                          <div className="flex items-center gap-2 mb-2">
-                            <div 
-                              className="w-3 h-3 rounded-full" 
-                              style={{ backgroundColor: data.color }}
-                            />
-                            <span className="font-medium">{data.name}</span>
+          <CardContent className="space-y-4">
+            <div className="flex justify-center">
+              <ResponsiveContainer width="100%" height={200}>
+                <PieChart>
+                  <Pie
+                    data={allocationData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={40}
+                    outerRadius={80}
+                    paddingAngle={2}
+                    dataKey="value"
+                  >
+                    {allocationData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip
+                    content={({ active, payload }) => {
+                      if (active && payload && payload.length) {
+                        const data = payload[0].payload
+                        return (
+                          <div className="bg-background border rounded-lg p-2 shadow-lg">
+                            <p className="text-xs font-medium">{data.name}</p>
+                            <p className="text-xs text-muted-foreground">
+                              ${data.value.toLocaleString()} ({data.percentage.toFixed(1)}%)
+                            </p>
                           </div>
-                          <p className="text-sm">Amount: {data.amount.toLocaleString()} {data.symbol}</p>
-                          <p className="text-sm">Value: ${data.value.toLocaleString()}</p>
-                          <p className="text-sm font-medium">{data.percentage.toFixed(1)}% of portfolio</p>
-                        </div>
-                      )
-                    }
-                    return null
-                  }}
-                />
-              </PieChart>
-            </ResponsiveContainer>
-            <div className="space-y-2 mt-4">
-              {allocationData.map((item) => (
-                <div key={item.symbol} className="flex items-center justify-between text-sm">
+                        )
+                      }
+                      return null
+                    }}
+                  />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            
+            <div className="space-y-2">
+              {allocationData.map((asset, index) => (
+                <div key={index} className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <div 
                       className="w-3 h-3 rounded-full" 
-                      style={{ backgroundColor: item.color }}
+                      style={{ backgroundColor: asset.color }}
                     />
-                    <span>{item.symbol}</span>
+                    <span className="text-xs md:text-sm font-medium">{asset.name}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span>${item.value.toLocaleString()}</span>
-                    <span className="text-muted-foreground">({item.percentage.toFixed(1)}%)</span>
+                  <div className="text-right">
+                    <div className="text-xs md:text-sm font-medium">${asset.value.toLocaleString()}</div>
+                    <div className="text-xs text-muted-foreground">{asset.percentage.toFixed(1)}%</div>
                   </div>
                 </div>
               ))}
@@ -368,142 +364,86 @@ export default function PortfolioPage() {
         </Card>
       </div>
 
-      {/* Holdings Table */}
-      <Card className="animate-fade-in-up delay-500 transition-all duration-200 hover:shadow-md">
-        <CardHeader>
-          <CardTitle>Your Holdings</CardTitle>
-          <CardDescription>Detailed breakdown of your cryptocurrency portfolio</CardDescription>
-        </CardHeader>
-        <CardContent className="p-0">
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="border-b border-border outline-ring/50">
-                <tr className="text-sm text-muted-foreground border-border outline-ring/50">
-                  <th className="text-left p-4">Asset</th>
-                  <th className="text-right p-4">Price</th>
-                  <th className="text-right p-4">24h Change</th>
-                  <th className="text-right p-4">Holdings</th>
-                  <th className="text-right p-4">Value</th>
-                  <th className="text-right p-4">Allocation</th>
-                </tr>
-              </thead>
-              <tbody>
-                {holdings.map((holding) => (
-                  <tr key={holding.symbol} className="border-b hover:bg-muted/50 transition-colors border-border outline-ring/50">
-                    <td className="p-4">
-                      <div className="flex items-center gap-3">
-                        <img
-                          src={getCoinIcon(holding.symbol)}
-                          alt={holding.name}
-                          className="w-8 h-8 rounded-full"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement
-                            target.src = getFallbackIcon(holding.symbol)
-                          }}
-                        />
-                        <div>
-                          <div className="font-medium">{holding.name}</div>
-                          <div className="text-sm text-muted-foreground">{holding.symbol}</div>
-                        </div>
+      <div className="grid gap-4 md:gap-6 grid-cols-1 lg:grid-cols-2 animate-fade-in-up delay-400">
+        {/* Holdings */}
+        <Card className="transition-all duration-200 hover:shadow-md">
+          <CardHeader>
+            <CardTitle className="text-lg md:text-xl">Holdings</CardTitle>
+            <CardDescription className="text-sm">Your cryptocurrency assets</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3 md:space-y-4">
+              {holdings.map((holding, index) => (
+                <div key={index} className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 md:gap-3 min-w-0">
+                    <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-muted flex items-center justify-center text-xs md:text-sm font-bold">
+                      {holding.icon}
+                    </div>
+                    <div className="min-w-0">
+                      <div className="font-medium text-sm md:text-base truncate">{holding.name}</div>
+                      <div className="text-xs md:text-sm text-muted-foreground">
+                        {holding.amount.toLocaleString()} {holding.symbol}
                       </div>
-                    </td>
-                    <td className="p-4 text-right">
-                      ${holding.price.toLocaleString()}
-                    </td>
-                    <td className="p-4 text-right">
-                      <div className={`flex items-center justify-end ${
-                        holding.change24h >= 0 ? 'text-green-600' : 'text-red-600'
-                      }`}>
-                        {holding.change24h >= 0 ? (
-                          <ArrowUpRight className="h-3 w-3 mr-1" />
-                        ) : (
-                          <ArrowDownRight className="h-3 w-3 mr-1" />
-                        )}
-                        {holding.change24h >= 0 ? '+' : ''}{holding.change24h}%
-                      </div>
-                    </td>
-                    <td className="p-4 text-right">
-                      {holding.amount.toLocaleString()} {holding.symbol}
-                    </td>
-                    <td className="p-4 text-right font-medium">
+                    </div>
+                  </div>
+                  <div className="text-right ml-2">
+                    <div className="font-medium text-sm md:text-base">
                       ${holding.value.toLocaleString()}
-                    </td>
-                    <td className="p-4 text-right">
-                      <div className="flex items-center justify-end gap-2">
-                        <div className="w-16 bg-muted rounded-full h-2">
-                          <div 
-                            className="h-2 rounded-full" 
-                            style={{ 
-                              width: `${holding.allocation}%`,
-                              backgroundColor: holding.color
-                            }}
-                          />
-                        </div>
-                        <span className="text-sm">{holding.allocation}%</span>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </CardContent>
-      </Card>
+                    </div>
+                    <div className={`text-xs md:text-sm flex items-center ${
+                      holding.change24h >= 0 ? 'text-green-600' : 'text-red-600'
+                    }`}>
+                      {holding.change24h >= 0 ? (
+                        <ArrowUpRight className="h-3 w-3 mr-1" />
+                      ) : (
+                        <ArrowDownRight className="h-3 w-3 mr-1" />
+                      )}
+                      {holding.change24h >= 0 ? '+' : ''}{holding.change24h.toFixed(2)}%
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
 
-      {/* Transaction History */}
-      <Card className="animate-fade-in-up delay-600 transition-all duration-200 hover:shadow-md">
-        <CardHeader>
-          <CardTitle>Recent Transactions</CardTitle>
-          <CardDescription>Your latest trading and deposit activity</CardDescription>
-        </CardHeader>
-        <CardContent className="p-0">
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="border-b border-border outline-ring/50">
-                <tr className="text-sm text-muted-foreground">
-                  <th className="text-left p-4">Type</th>
-                  <th className="text-left p-4">Asset</th>
-                  <th className="text-right p-4">Amount</th>
-                  <th className="text-right p-4">Price</th>
-                  <th className="text-right p-4">Value</th>
-                  <th className="text-left p-4">Date</th>
-                  <th className="text-left p-4">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {transactions.map((tx, index) => (
-                  <tr key={index} className="border-b hover:bg-muted/50 border-border outline-ring/50">
-                    <td className="p-4">
-                      <div className={`px-2 py-1 rounded text-xs font-medium inline-block ${
-                        tx.type === 'BUY' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' :
-                        tx.type === 'SELL' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300' :
-                        'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300'
-                      }`}>
-                        {tx.type}
-                      </div>
-                    </td>
-                    <td className="p-4 font-medium">{tx.asset}</td>
-                    <td className="p-4 text-right">{tx.amount.toLocaleString()}</td>
-                    <td className="p-4 text-right">${tx.price.toLocaleString()}</td>
-                    <td className="p-4 text-right font-medium">${tx.value.toLocaleString()}</td>
-                    <td className="p-4">
-                      <div>
-                        <div className="text-sm">{tx.date}</div>
-                        <div className="text-xs text-muted-foreground">{tx.time}</div>
-                      </div>
-                    </td>
-                    <td className="p-4">
-                      <div className="px-2 py-1 rounded text-xs font-medium inline-block bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
-                        {tx.status}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </CardContent>
-      </Card>
+        {/* Recent Transactions */}
+        <Card className="transition-all duration-200 hover:shadow-md">
+          <CardHeader>
+            <CardTitle className="text-lg md:text-xl">Recent Transactions</CardTitle>
+            <CardDescription className="text-sm">Your latest trading activity</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3 md:space-y-4">
+              {transactions.slice(0, 5).map((transaction, index) => (
+                <div key={index} className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 md:gap-3 min-w-0">
+                    <div className={`px-2 py-1 rounded text-xs font-medium ${
+                      transaction.type === 'BUY' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' : 
+                      transaction.type === 'SELL' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300' :
+                      'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300'
+                    }`}>
+                      {transaction.type}
+                    </div>
+                    <div className="min-w-0">
+                      <div className="font-medium text-sm md:text-base truncate">{transaction.amount} {transaction.asset}</div>
+                      <div className="text-xs md:text-sm text-muted-foreground">at ${transaction.price.toLocaleString()}</div>
+                    </div>
+                  </div>
+                  <div className="text-right ml-2">
+                    <div className="font-medium text-sm md:text-base">
+                      ${transaction.value.toLocaleString()}
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      {transaction.date} {transaction.time}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   )
 }

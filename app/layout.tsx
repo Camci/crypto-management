@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -21,6 +21,13 @@ export const metadata: Metadata = {
   description: "Professional cryptocurrency trading and portfolio management platform",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,10 +45,15 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex h-screen bg-background">
-            <Sidebar />
-            <div className="flex-1 flex flex-col overflow-hidden  border-border outline-ring/50">
+            {/* Sidebar - Hidden on mobile, visible on md and above */}
+            <div className="hidden md:block">
+              <Sidebar />
+            </div>
+            
+            {/* Main content area - Full width on mobile, adjusted on desktop */}
+            <div className="flex-1 flex flex-col overflow-hidden border-border outline-ring/50">
               <Header />
-              <main className="flex-1 overflow-y-auto p-6">
+              <main className="flex-1 overflow-y-auto p-4 md:p-6">
                 {children}
               </main>
             </div>

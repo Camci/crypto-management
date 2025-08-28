@@ -100,57 +100,57 @@ export default function TradingPage() {
   const coinName = coinData?.name || 'Bitcoin'
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between animate-fade-in-up delay-100">
+    <div className="space-y-4 md:space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 animate-fade-in-up delay-100">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Trading</h1>
-          <p className="text-muted-foreground">Advanced cryptocurrency trading interface</p>
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Trading</h1>
+          <p className="text-sm md:text-base text-muted-foreground">Advanced cryptocurrency trading interface</p>
         </div>
         <div className="flex items-center gap-2">
           <img
             src={getCoinIcon(coinSymbol)}
             alt={coinName}
-            className="w-8 h-8 rounded-full"
+            className="w-6 h-6 md:w-8 md:h-8 rounded-full"
             onError={(e) => {
               const target = e.target as HTMLImageElement
               target.src = getFallbackIcon(coinSymbol)
             }}
           />
-          <span className="text-lg font-medium">{coinSymbol}/USDT</span>
+          <span className="text-base md:text-lg font-medium">{coinSymbol}/USDT</span>
         </div>
       </div>
 
       {/* Trading Pair Info */}
       <Card className="transition-all duration-200 hover:shadow-md animate-fade-in-up delay-200">
-        <CardContent className="p-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-3">
+        <CardContent className="p-4 md:p-6">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 md:gap-6">
+              <div className="flex items-center gap-2 md:gap-3">
                 <img
                   src={getCoinIcon(coinSymbol)}
                   alt={coinName}
-                  className="w-10 h-10 rounded-full"
+                  className="w-8 h-8 md:w-10 md:h-10 rounded-full"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement
                     target.src = getFallbackIcon(coinSymbol)
                   }}
                 />
                 <div>
-                  <h2 className="text-2xl font-bold">{coinSymbol}/USDT</h2>
-                  <p className="text-sm text-muted-foreground">{coinName} / Tether</p>
+                  <h2 className="text-xl md:text-2xl font-bold">{coinSymbol}/USDT</h2>
+                  <p className="text-xs md:text-sm text-muted-foreground">{coinName} / Tether</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-3xl font-bold">
+                <span className="text-2xl md:text-3xl font-bold">
                   ${formatPrice(currentPrice)}
                 </span>
-                <div className={`flex items-center ${priceChange >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-                  {priceChange >= 0 ? <ArrowUpRight className="h-4 w-4" /> : <ArrowDownRight className="h-4 w-4" />}
+                <div className={`flex items-center text-sm md:text-base ${priceChange >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                  {priceChange >= 0 ? <ArrowUpRight className="h-3 w-3 md:h-4 md:w-4" /> : <ArrowDownRight className="h-3 w-3 md:h-4 md:w-4" />}
                   <span>{priceChange >= 0 ? '+' : ''}{priceChange.toFixed(2)}%</span>
                 </div>
               </div>
             </div>
-            <div className="flex gap-8 text-sm">
+            <div className="flex flex-wrap gap-4 md:gap-8 text-xs md:text-sm">
               <div>
                 <p className="text-muted-foreground">24h High</p>
                 <p className="font-medium">${formatPrice(high24h)}</p>
@@ -168,78 +168,63 @@ export default function TradingPage() {
         </CardContent>
       </Card>
 
-      <div className="grid gap-6 lg:grid-cols-4 animate-fade-in-up delay-300">
+      <div className="grid gap-4 md:gap-6 grid-cols-1 lg:grid-cols-4 animate-fade-in-up delay-300">
         {/* Chart */}
         <Card className="lg:col-span-2 transition-all duration-200 hover:shadow-md">
           <CardHeader>
-            <div className="flex items-center justify-between">
-              <CardTitle>Price Chart</CardTitle>
-              <Tabs value={chartTimeframe} onValueChange={(value) => setChartTimeframe(value as any)} className="w-auto">
-                <TabsList>
-                  <TabsTrigger value="1m" className="cursor-pointer">1m</TabsTrigger>
-                  <TabsTrigger value="5m" className="cursor-pointer">5m</TabsTrigger>
-                  <TabsTrigger value="15m" className="cursor-pointer">15m</TabsTrigger>
-                  <TabsTrigger value="1h" className="cursor-pointer">1h</TabsTrigger>
-                  <TabsTrigger value="4h" className="cursor-pointer">4h</TabsTrigger>
-                  <TabsTrigger value="1d" className="cursor-pointer">1d</TabsTrigger>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <CardTitle className="text-lg md:text-xl">Price Chart</CardTitle>
+              <Tabs value={chartTimeframe} onValueChange={(value) => setChartTimeframe(value as any)} className="w-full sm:w-auto">
+                <TabsList className="grid grid-cols-6 w-full sm:w-auto">
+                  <TabsTrigger value="1m" className="cursor-pointer text-xs md:text-sm">1m</TabsTrigger>
+                  <TabsTrigger value="5m" className="cursor-pointer text-xs md:text-sm">5m</TabsTrigger>
+                  <TabsTrigger value="15m" className="cursor-pointer text-xs md:text-sm">15m</TabsTrigger>
+                  <TabsTrigger value="1h" className="cursor-pointer text-xs md:text-sm">1h</TabsTrigger>
+                  <TabsTrigger value="4h" className="cursor-pointer text-xs md:text-sm">4h</TabsTrigger>
+                  <TabsTrigger value="1d" className="cursor-pointer text-xs md:text-sm">1d</TabsTrigger>
                 </TabsList>
               </Tabs>
             </div>
           </CardHeader>
           <CardContent>
-            <ResponsiveContainer width="100%" height={384}>
+            <ResponsiveContainer width="100%" height={300} className="sm:h-[384px]">
               <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" strokeOpacity={0.3} />
                 <XAxis 
                   dataKey="time" 
                   className="text-xs"
-                  tick={{ fontSize: 12 }}
+                  tick={{ fontSize: 10 }}
                 />
                 <YAxis 
                   className="text-xs"
-                  tick={{ fontSize: 12 }}
-                  domain={['dataMin - 100', 'dataMax + 100']}
+                  tick={{ fontSize: 10 }}
                   tickFormatter={(value) => `$${formatPrice(value)}`}
                 />
                 <Tooltip
                   content={({ active, payload, label }) => {
                     if (active && payload && payload.length) {
-                      const value = payload[0].value as number
-                      const changeFromStart = chartData.length > 0 ? 
-                        ((value - chartData[0].value) / chartData[0].value) * 100 : 0
                       return (
-                        <div className="bg-background border rounded-lg p-3 shadow-lg">
-                          <p className="text-sm font-medium">{label}</p>
-                          <p className="text-lg font-bold">
-                            ${formatPrice(value)}
-                          </p>
-                          <p className={`text-sm ${changeFromStart >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-                            {changeFromStart >= 0 ? '+' : ''}{changeFromStart.toFixed(2)}%
-                          </p>
+                        <div className="bg-background border rounded-lg p-2 md:p-3 shadow-lg">
+                          <p className="text-xs md:text-sm font-medium mb-2">{label}</p>
+                          <div className="space-y-1">
+                            <div className="flex items-center justify-between gap-2 md:gap-4">
+                              <span className="text-xs md:text-sm">Price:</span>
+                              <span className="font-bold text-xs md:text-sm">${formatPrice(payload[0].value as number)}</span>
+                            </div>
+                          </div>
                         </div>
                       )
                     }
                     return null
                   }}
                 />
-                <defs>
-                  <linearGradient id="priceGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
-                  </linearGradient>
-                </defs>
                 <Line 
                   type="monotone" 
-                  dataKey="value" 
-                  stroke="#10b981" 
-                  strokeWidth={3}
+                  dataKey="price" 
+                  stroke="hsl(var(--primary))" 
+                  strokeWidth={2}
                   dot={false}
-                  activeDot={{ 
-                    r: 6, 
-                    stroke: '#10b981', 
-                    strokeWidth: 3, 
-                    fill: '#ffffff'
-                  }}
+                  activeDot={{ r: 4, stroke: "hsl(var(--primary))", strokeWidth: 2, fill: "hsl(var(--background))" }}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -249,41 +234,36 @@ export default function TradingPage() {
         {/* Order Book */}
         <Card className="transition-all duration-200 hover:shadow-md">
           <CardHeader>
-            <CardTitle>Order Book</CardTitle>
+            <CardTitle className="text-lg md:text-xl">Order Book</CardTitle>
           </CardHeader>
-          <CardContent className="p-0">
-            <div className="space-y-1">
-              {/* Asks */}
-              <div className="px-6 pb-2">
-                <div className="grid grid-cols-3 text-xs text-muted-foreground mb-2">
-                  <span>Price (USDT)</span>
-                  <span className="text-right">Amount (BTC)</span>
-                  <span className="text-right">Total</span>
-                </div>
-                {orderBookData.asks.reverse().map((ask, index) => (
-                  <div key={index} className="grid grid-cols-3 text-xs py-0.5 hover:bg-muted/50 transition-colors cursor-pointer">
-                    <span className="text-red-600">{ask.price.toLocaleString()}</span>
-                    <span className="text-right">{ask.amount.toFixed(4)}</span>
-                    <span className="text-right text-muted-foreground">{ask.total.toFixed(4)}</span>
+          <CardContent className="space-y-3">
+            {/* Asks */}
+            <div>
+              <div className="text-xs md:text-sm font-medium text-red-600 mb-2">Asks</div>
+              <div className="space-y-1">
+                {orderBookData.asks.map((ask, index) => (
+                  <div key={index} className="flex justify-between text-xs md:text-sm">
+                    <span className="text-red-600">${formatPrice(ask.price)}</span>
+                    <span>{ask.amount.toFixed(4)}</span>
                   </div>
                 ))}
               </div>
-              
-              {/* Spread */}
-              <div className="px-6 py-2 bg-muted/30 border-y">
-                <div className="text-center">
-                  <span className="text-sm font-medium">$43,247.89</span>
-                  <span className="text-xs text-muted-foreground ml-2">Spread: $5.00</span>
-                </div>
-              </div>
-
-              {/* Bids */}
-              <div className="px-6 pt-2">
+            </div>
+            
+            {/* Current Price */}
+            <div className="border-t border-b py-2 text-center">
+              <div className="text-lg md:text-xl font-bold">${formatPrice(currentPrice)}</div>
+              <div className="text-xs text-muted-foreground">Current Price</div>
+            </div>
+            
+            {/* Bids */}
+            <div>
+              <div className="text-xs md:text-sm font-medium text-green-600 mb-2">Bids</div>
+              <div className="space-y-1">
                 {orderBookData.bids.map((bid, index) => (
-                  <div key={index} className="grid grid-cols-3 text-xs py-0.5 hover:bg-muted/50 transition-colors cursor-pointer">
-                    <span className="text-green-600">{bid.price.toLocaleString()}</span>
-                    <span className="text-right">{bid.amount.toFixed(4)}</span>
-                    <span className="text-right text-muted-foreground">{bid.total.toFixed(4)}</span>
+                  <div key={index} className="flex justify-between text-xs md:text-sm">
+                    <span className="text-green-600">${formatPrice(bid.price)}</span>
+                    <span>{bid.amount.toFixed(4)}</span>
                   </div>
                 ))}
               </div>
@@ -291,33 +271,73 @@ export default function TradingPage() {
           </CardContent>
         </Card>
 
-        {/* Trading Panel */}
+        {/* Recent Trades */}
         <Card className="transition-all duration-200 hover:shadow-md">
           <CardHeader>
-            <CardTitle>Place Order</CardTitle>
+            <CardTitle className="text-lg md:text-xl">Recent Trades</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-2">
+              {recentTrades.map((trade, index) => (
+                <div key={index} className="flex items-center justify-between text-xs md:text-sm">
+                  <div className="flex items-center gap-2">
+                    <div className={`w-2 h-2 rounded-full ${trade.type === 'buy' ? 'bg-green-500' : 'bg-red-500'}`} />
+                    <span className="font-medium">${formatPrice(trade.price)}</span>
+                  </div>
+                  <div className="text-right">
+                    <div>{trade.amount.toFixed(4)}</div>
+                    <div className="text-muted-foreground">{trade.time}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid gap-4 md:gap-6 grid-cols-1 lg:grid-cols-3 animate-fade-in-up delay-400">
+        {/* Trading Form */}
+        <Card className="lg:col-span-2 transition-all duration-200 hover:shadow-md">
+          <CardHeader>
+            <CardTitle className="text-lg md:text-xl">Place Order</CardTitle>
+            <CardDescription className="text-sm">Buy or sell {coinSymbol}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Tabs value={side} onValueChange={setSide} className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="buy" className="text-green-600 cursor-pointer">Buy</TabsTrigger>
-                <TabsTrigger value="sell" className="text-red-600 cursor-pointer">Sell</TabsTrigger>
-              </TabsList>
-            </Tabs>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Order Type</label>
-              <Select value={orderType} onValueChange={setOrderType}>
-                <SelectTrigger className="cursor-pointer">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="market" className="cursor-pointer">Market</SelectItem>
-                  <SelectItem value="limit" className="cursor-pointer">Limit</SelectItem>
-                  <SelectItem value="stop" className="cursor-pointer">Stop Loss</SelectItem>
-                </SelectContent>
-              </Select>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex-1">
+                <label className="text-xs md:text-sm font-medium mb-2 block">Order Type</label>
+                <Select value={orderType} onValueChange={setOrderType}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="market">Market</SelectItem>
+                    <SelectItem value="limit">Limit</SelectItem>
+                    <SelectItem value="stop">Stop</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="flex-1">
+                <label className="text-xs md:text-sm font-medium mb-2 block">Side</label>
+                <div className="grid grid-cols-2 gap-2">
+                  <Button
+                    variant={side === "buy" ? "default" : "outline"}
+                    onClick={() => setSide("buy")}
+                    className={side === "buy" ? "bg-green-600 hover:bg-green-700" : ""}
+                  >
+                    Buy
+                  </Button>
+                  <Button
+                    variant={side === "sell" ? "default" : "outline"}
+                    onClick={() => setSide("sell")}
+                    className={side === "sell" ? "bg-red-600 hover:bg-red-700" : ""}
+                  >
+                    Sell
+                  </Button>
+                </div>
+              </div>
             </div>
-
+            
             <TradingCalculator
               currentPrice={currentPrice}
               baseCurrency={coinSymbol}
@@ -325,71 +345,46 @@ export default function TradingPage() {
               side={side as "buy" | "sell"}
               orderType={orderType as "market" | "limit" | "stop"}
             />
-
-            <Button 
-              className={`w-full transition-all duration-200 hover:scale-105 cursor-pointer ${
-                side === 'buy' ? 'bg-green-600 hover:bg-green-700' : 'bg-red-600 hover:bg-red-700'
-              }`}
-            >
-              {side === 'buy' ? `Buy ${coinSymbol}` : `Sell ${coinSymbol}`}
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-
-      <div className="grid gap-6 lg:grid-cols-2 animate-fade-in-up delay-500">
-        {/* Recent Trades */}
-        <Card className="transition-all duration-200 hover:shadow-md">
-          <CardHeader>
-            <CardTitle>Recent Trades</CardTitle>
-          </CardHeader>
-          <CardContent className="p-0">
-            <div className="space-y-1">
-              <div className="grid grid-cols-3 text-xs text-muted-foreground px-6 pb-2">
-                <span>Price (USDT)</span>
-                <span className="text-right">Amount (BTC)</span>
-                <span className="text-right">Time</span>
-              </div>
-              {recentTrades.map((trade, index) => (
-                <div key={index} className="grid grid-cols-3 text-xs py-1 px-6 hover:bg-muted/50 transition-colors">
-                  <span className={trade.type === 'buy' ? 'text-green-600' : 'text-red-600'}>
-                    {trade.price.toLocaleString()}
-                  </span>
-                  <span className="text-right">{trade.amount.toFixed(4)}</span>
-                  <span className="text-right text-muted-foreground">{trade.time}</span>
-                </div>
-              ))}
-            </div>
           </CardContent>
         </Card>
 
         {/* Open Orders */}
         <Card className="transition-all duration-200 hover:shadow-md">
           <CardHeader>
-            <CardTitle>Open Orders</CardTitle>
+            <CardTitle className="text-lg md:text-xl">Open Orders</CardTitle>
+            <CardDescription className="text-sm">Your active orders</CardDescription>
           </CardHeader>
-          <CardContent className="p-0">
-            <div className="space-y-1">
-              <div className="grid grid-cols-6 text-xs text-muted-foreground px-6 pb-2">
-                <span>Type</span>
-                <span>Side</span>
-                <span>Amount</span>
-                <span>Price</span>
-                <span>Filled</span>
-                <span>Action</span>
-              </div>
+          <CardContent>
+            <div className="space-y-3">
               {openOrders.map((order, index) => (
-                <div key={index} className="grid grid-cols-6 text-xs py-2 px-6 hover:bg-muted/50 items-center transition-colors">
-                  <span>{order.type}</span>
-                  <span className={order.side === 'BUY' ? 'text-green-600' : 'text-red-600'}>
-                    {order.side}
-                  </span>
-                  <span>{order.amount} BTC</span>
-                  <span>${order.price}</span>
-                  <span>{order.filled}</span>
-                  <Button variant="ghost" size="sm" className="text-red-600 h-6 px-2 cursor-pointer">
-                    Cancel
-                  </Button>
+                <div key={index} className="border rounded-lg p-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className={`px-2 py-1 rounded text-xs font-medium ${
+                      order.side === 'BUY' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' : 
+                      'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300'
+                    }`}>
+                      {order.side}
+                    </div>
+                    <span className="text-xs text-muted-foreground">{order.type}</span>
+                  </div>
+                  <div className="space-y-1 text-xs md:text-sm">
+                    <div className="flex justify-between">
+                      <span>Amount:</span>
+                      <span>{order.amount}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Price:</span>
+                      <span>{order.price}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Filled:</span>
+                      <span>{order.filled}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Status:</span>
+                      <span className={order.status === 'OPEN' ? 'text-green-600' : 'text-yellow-600'}>{order.status}</span>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

@@ -92,7 +92,7 @@ export function SearchCrypto() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => query && setIsOpen(true)}
-          className="w-80 pl-10 transition-all duration-200 focus:w-96"
+          className="w-48 md:w-80 pl-10 transition-all duration-200 md:focus:w-96"
         />
         {isLoading && (
           <div className="absolute right-3 top-1/2 -translate-y-1/2">
@@ -108,30 +108,30 @@ export function SearchCrypto() {
               <Button
                 key={coin.id}
                 variant="ghost"
-                className="w-full justify-start h-auto p-3 hover:bg-muted/50 transition-colors cursor-pointer"
+                className="w-full justify-start h-auto p-2 md:p-3 hover:bg-muted/50 transition-colors cursor-pointer"
                 onClick={() => handleResultClick(coin)}
               >
-                <div className="flex items-center gap-3 w-full">
+                <div className="flex items-center gap-2 md:gap-3 w-full">
                   <img
                     src={getCoinIcon(coin.symbol)}
                     alt={coin.name}
-                    className="w-6 h-6 rounded-full"
+                    className="w-5 h-5 md:w-6 md:h-6 rounded-full flex-shrink-0"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement
                       target.src = getFallbackIcon(coin.symbol)
                     }}
                   />
-                  <div className="flex-1 text-left">
+                  <div className="flex-1 text-left min-w-0">
                     <div className="flex items-center justify-between">
-                      <div>
-                        <div className="font-medium">{coin.name}</div>
-                        <div className="text-sm text-muted-foreground">{coin.symbol}</div>
+                      <div className="min-w-0">
+                        <div className="font-medium text-sm md:text-base truncate">{coin.name}</div>
+                        <div className="text-xs md:text-sm text-muted-foreground">{coin.symbol}</div>
                       </div>
                       {coin.price && (
-                        <div className="text-right">
-                          <div className="font-medium">${formatPrice(coin.price)}</div>
+                        <div className="text-right ml-2">
+                          <div className="font-medium text-sm md:text-base">${formatPrice(coin.price)}</div>
                           {coin.change24h !== undefined && (
-                            <div className={`text-sm flex items-center ${
+                            <div className={`text-xs md:text-sm flex items-center ${
                               coin.change24h >= 0 ? 'text-green-600' : 'text-red-600'
                             }`}>
                               {coin.change24h >= 0 ? (

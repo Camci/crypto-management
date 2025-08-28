@@ -100,23 +100,23 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       <div className="flex items-center justify-between animate-fade-in-up delay-100">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-          <p className="text-muted-foreground">Welcome to your crypto dashboard</p>
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Dashboard</h1>
+          <p className="text-sm md:text-base text-muted-foreground">Welcome to your crypto dashboard</p>
         </div>
       </div>
 
       {/* Portfolio Summary Cards */}
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         <Card className="transition-all duration-200 hover:shadow-md animate-fade-in-up delay-200">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Balance</CardTitle>
+            <CardTitle className="text-xs md:text-sm font-medium">Total Balance</CardTitle>
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">
+            <div className="text-xl md:text-2xl font-bold">
               ${((btcData?.quotes.USD.price || 0) * 1.2847 + (ethData?.quotes.USD.price || 0) * 8.4521 + 12449.67).toLocaleString()}
             </div>
             <div className="flex items-center text-xs text-green-600">
@@ -128,11 +128,11 @@ export default function Dashboard() {
 
         <Card className="transition-all duration-200 hover:shadow-md animate-fade-in-up delay-200">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">24h Change</CardTitle>
+            <CardTitle className="text-xs md:text-sm font-medium">24h Change</CardTitle>
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-green-600">
+            <div className="text-xl md:text-2xl font-bold text-green-600">
               +$1,147.82
             </div>
             <div className="flex items-center text-xs text-green-600">
@@ -142,13 +142,13 @@ export default function Dashboard() {
           </CardContent>
         </Card>
 
-        <Card className="transition-all duration-200 hover:shadow-md animate-fade-in-up delay-200">
+        <Card className="transition-all duration-200 hover:shadow-md animate-fade-in-up delay-200 sm:col-span-2 md:col-span-1">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Available</CardTitle>
+            <CardTitle className="text-xs md:text-sm font-medium">Available</CardTitle>
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">
+            <div className="text-xl md:text-2xl font-bold">
               $12,449.67
             </div>
             <div className="text-xs text-muted-foreground">For trading</div>
@@ -156,27 +156,27 @@ export default function Dashboard() {
         </Card>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-4 md:gap-6 grid-cols-1 lg:grid-cols-3">
         {/* Trading Tips & Wallet Decisions */}
         <Card className="lg:col-span-2 transition-all duration-200 hover:shadow-md animate-fade-in-up delay-300">
           <CardHeader>
-            <CardTitle>💡 Trading Tips & Wallet Decisions</CardTitle>
-            <CardDescription>Smart insights for your crypto portfolio</CardDescription>
+            <CardTitle className="text-lg md:text-xl">💡 Trading Tips & Wallet Decisions</CardTitle>
+            <CardDescription className="text-sm">Smart insights for your crypto portfolio</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-3 md:space-y-4">
             {/* Market Analysis */}
-            <div className="bg-blue-50 dark:bg-blue-950/20 rounded-lg p-4">
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                  <TrendingUp className="h-4 w-4 text-white" />
+            <div className="bg-blue-50 dark:bg-blue-950/20 rounded-lg p-3 md:p-4">
+              <div className="flex items-start gap-2 md:gap-3">
+                <div className="w-6 h-6 md:w-8 md:h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <TrendingUp className="h-3 w-3 md:h-4 md:w-4 text-white" />
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-medium text-blue-900 dark:text-blue-100">Market Analysis</h4>
-                  <p className="text-sm text-blue-700 dark:text-blue-300 mt-1">
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-medium text-blue-900 dark:text-blue-100 text-sm md:text-base">Market Analysis</h4>
+                  <p className="text-xs md:text-sm text-blue-700 dark:text-blue-300 mt-1">
                     BTC is showing strong support at $43,000. Consider accumulating on dips below this level.
                   </p>
-                  <div className="flex items-center gap-2 mt-2">
-                    <span className="text-xs bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-2">
+                    <span className="text-xs bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 px-2 py-1 rounded w-fit">
                       Confidence: High
                     </span>
                     <span className="text-xs text-blue-600 dark:text-blue-400">
@@ -188,18 +188,18 @@ export default function Dashboard() {
             </div>
 
             {/* Portfolio Recommendation */}
-            <div className="bg-green-50 dark:bg-green-950/20 rounded-lg p-4">
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                  <ArrowUpRight className="h-4 w-4 text-white" />
+            <div className="bg-green-50 dark:bg-green-950/20 rounded-lg p-3 md:p-4">
+              <div className="flex items-start gap-2 md:gap-3">
+                <div className="w-6 h-6 md:w-8 md:h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <ArrowUpRight className="h-3 w-3 md:h-4 md:w-4 text-white" />
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-medium text-green-900 dark:text-green-100">Portfolio Rebalancing</h4>
-                  <p className="text-sm text-green-700 dark:text-green-300 mt-1">
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-medium text-green-900 dark:text-green-100 text-sm md:text-base">Portfolio Rebalancing</h4>
+                  <p className="text-xs md:text-sm text-green-700 dark:text-green-300 mt-1">
                     Your BTC allocation is 58%. Consider taking some profits and diversifying into ETH or stablecoins.
                   </p>
-                  <div className="flex items-center gap-2 mt-2">
-                    <Button size="sm" variant="outline" className="h-7 text-xs">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-2">
+                    <Button size="sm" variant="outline" className="h-7 text-xs w-fit">
                       Rebalance Now
                     </Button>
                     <span className="text-xs text-green-600 dark:text-green-400">
@@ -211,18 +211,18 @@ export default function Dashboard() {
             </div>
 
             {/* Risk Management */}
-            <div className="bg-amber-50 dark:bg-amber-950/20 rounded-lg p-4">
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center">
-                  <TrendingDown className="h-4 w-4 text-white" />
+            <div className="bg-amber-50 dark:bg-amber-950/20 rounded-lg p-3 md:p-4">
+              <div className="flex items-start gap-2 md:gap-3">
+                <div className="w-6 h-6 md:w-8 md:h-8 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <TrendingDown className="h-3 w-3 md:h-4 md:w-4 text-white" />
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-medium text-amber-900 dark:text-amber-100">Risk Management</h4>
-                  <p className="text-sm text-amber-700 dark:text-amber-300 mt-1">
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-medium text-amber-900 dark:text-amber-100 text-sm md:text-base">Risk Management</h4>
+                  <p className="text-xs md:text-sm text-amber-700 dark:text-amber-300 mt-1">
                     Set stop-losses at 5% below current prices. Your portfolio shows high volatility exposure.
                   </p>
-                  <div className="flex items-center gap-2 mt-2">
-                    <Button size="sm" variant="outline" className="h-7 text-xs">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-2">
+                    <Button size="sm" variant="outline" className="h-7 text-xs w-fit">
                       Set Stop Loss
                     </Button>
                     <span className="text-xs text-amber-600 dark:text-amber-400">
@@ -234,18 +234,18 @@ export default function Dashboard() {
             </div>
 
             {/* DCA Strategy */}
-            <div className="bg-purple-50 dark:bg-purple-950/20 rounded-lg p-4">
-              <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
-                  <ArrowDownRight className="h-4 w-4 text-white" />
+            <div className="bg-purple-50 dark:bg-purple-950/20 rounded-lg p-3 md:p-4">
+              <div className="flex items-start gap-2 md:gap-3">
+                <div className="w-6 h-6 md:w-8 md:h-8 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <ArrowDownRight className="h-3 w-3 md:h-4 md:w-4 text-white" />
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-medium text-purple-900 dark:text-purple-100">DCA Strategy</h4>
-                  <p className="text-sm text-purple-700 dark:text-purple-300 mt-1">
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-medium text-purple-900 dark:text-purple-100 text-sm md:text-base">DCA Strategy</h4>
+                  <p className="text-xs md:text-sm text-purple-700 dark:text-purple-300 mt-1">
                     Consider setting up weekly $500 DCA orders. Market conditions favor regular accumulation.
                   </p>
-                  <div className="flex items-center gap-2 mt-2">
-                    <Button size="sm" variant="outline" className="h-7 text-xs">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-2">
+                    <Button size="sm" variant="outline" className="h-7 text-xs w-fit">
                       Setup DCA
                     </Button>
                     <span className="text-xs text-purple-600 dark:text-purple-400">
@@ -257,8 +257,8 @@ export default function Dashboard() {
             </div>
 
             {/* Quick Actions */}
-            <div className="border-t pt-4">
-              <div className="flex items-center justify-between">
+            <div className="border-t pt-3 md:pt-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <span className="text-sm font-medium">Quick Actions</span>
                 <div className="flex gap-2">
                   <Button size="sm" variant="outline" className="h-8 text-xs">
@@ -276,14 +276,14 @@ export default function Dashboard() {
         {/* Quick Trade */}
         <Card className="transition-all duration-200 hover:shadow-md animate-fade-in-up delay-500">
           <CardHeader>
-            <CardTitle>Quick Trade</CardTitle>
-            <CardDescription>Buy or sell cryptocurrencies</CardDescription>
+            <CardTitle className="text-lg md:text-xl">Quick Trade</CardTitle>
+            <CardDescription className="text-sm">Buy or sell cryptocurrencies</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <Tabs defaultValue="buy" className="w-full">
               <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="buy" className="cursor-pointer">Buy</TabsTrigger>
-                <TabsTrigger value="sell" className="cursor-pointer">Sell</TabsTrigger>
+                <TabsTrigger value="buy" className="cursor-pointer text-xs md:text-sm">Buy</TabsTrigger>
+                <TabsTrigger value="sell" className="cursor-pointer text-xs md:text-sm">Sell</TabsTrigger>
               </TabsList>
               <TabsContent value="buy" className="space-y-4">
                 <TradingCalculator
@@ -314,43 +314,43 @@ export default function Dashboard() {
         </Card>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-4 md:gap-6 grid-cols-1 lg:grid-cols-2">
         {/* Portfolio Holdings */}
         <Card className="transition-all duration-200 hover:shadow-md animate-fade-in-up delay-600">
           <CardHeader>
-            <CardTitle>Portfolio</CardTitle>
-            <CardDescription>Your cryptocurrency holdings</CardDescription>
+            <CardTitle className="text-lg md:text-xl">Portfolio</CardTitle>
+            <CardDescription className="text-sm">Your cryptocurrency holdings</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               {[
                 { data: btcData, amount: 1.2847, name: "Bitcoin" },
                 { data: ethData, amount: 8.4521, name: "Ethereum" },
                 { data: usdtData, amount: 12449.67, name: "Tether" }
               ].map((asset, index) => asset.data && (
                 <div key={asset.data.symbol} className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 md:gap-3 min-w-0">
                     <img
                       src={getCoinIcon(asset.data.symbol)}
                       alt={asset.name}
-                      className="w-8 h-8 rounded-full"
+                      className="w-6 h-6 md:w-8 md:h-8 rounded-full flex-shrink-0"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement
                         target.src = getFallbackIcon(asset?.data?.symbol || '')
                       }}
                     />
-                    <div>
-                      <div className="font-medium">{asset.name}</div>
-                      <div className="text-sm text-muted-foreground">
+                    <div className="min-w-0">
+                      <div className="font-medium text-sm md:text-base truncate">{asset.name}</div>
+                      <div className="text-xs md:text-sm text-muted-foreground">
                         {asset.amount.toLocaleString()} {asset.data.symbol}
                       </div>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div className="font-medium">
+                  <div className="text-right ml-2">
+                    <div className="font-medium text-sm md:text-base">
                       ${(asset.data.quotes.USD.price * asset.amount).toLocaleString()}
                     </div>
-                    <div className={`text-sm flex items-center ${
+                    <div className={`text-xs md:text-sm flex items-center ${
                       asset.data.quotes.USD.percent_change_24h >= 0 ? 'text-green-600' : 'text-red-600'
                     }`}>
                       {asset.data.quotes.USD.percent_change_24h >= 0 ? (
@@ -371,27 +371,27 @@ export default function Dashboard() {
         {/* Recent Orders */}
         <Card className="transition-all duration-200 hover:shadow-md animate-fade-in-up delay-600">
           <CardHeader>
-            <CardTitle>Recent Orders</CardTitle>
-            <CardDescription>Your latest trading activity</CardDescription>
+            <CardTitle className="text-lg md:text-xl">Recent Orders</CardTitle>
+            <CardDescription className="text-sm">Your latest trading activity</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               {recentOrders.map((order, index) => (
                 <div key={index} className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 md:gap-3 min-w-0">
                     <div className={`px-2 py-1 rounded text-xs font-medium ${
                       order.type === 'BUY' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' : 
                       'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300'
                     }`}>
                       {order.type}
                     </div>
-                    <div>
-                      <div className="font-medium">{order.amount} {order.asset}</div>
-                      <div className="text-sm text-muted-foreground">at {order.price}</div>
+                    <div className="min-w-0">
+                      <div className="font-medium text-sm md:text-base truncate">{order.amount} {order.asset}</div>
+                      <div className="text-xs md:text-sm text-muted-foreground">at {order.price}</div>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div className="text-sm text-muted-foreground">{order.time}</div>
+                  <div className="text-right ml-2">
+                    <div className="text-xs md:text-sm text-muted-foreground">{order.time}</div>
                   </div>
                 </div>
               ))}

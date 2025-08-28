@@ -128,21 +128,21 @@ export function TradingCalculator({
     (calculationMode === "amount" ? numAmount * numPrice : numTotal) - fee
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3 md:space-y-4">
       {/* Order Type and Price */}
       {orderType !== "market" && (
         <div className="space-y-2">
-          <label className="text-sm font-medium">Price</label>
+          <label className="text-xs md:text-sm font-medium">Price</label>
           <div className="relative">
             <Input
               type="number"
               placeholder={formatPrice(currentPrice)}
               value={price}
               onChange={(e) => handlePriceChange(e.target.value)}
-              className="pr-16"
+              className="pr-16 text-sm md:text-base"
               step="0.01"
             />
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs md:text-sm text-muted-foreground">
               {quoteCurrency}
             </span>
           </div>
@@ -154,12 +154,12 @@ export function TradingCalculator({
 
       {/* Amount */}
       <div className="space-y-2">
-        <label className="text-sm font-medium flex items-center gap-2">
+        <label className="text-xs md:text-sm font-medium flex items-center gap-2">
           Amount
           <Button
             variant="ghost"
             size="sm"
-            className="h-6 w-6 p-0"
+            className="h-5 w-5 md:h-6 md:w-6 p-0"
             onClick={() => setCalculationMode(calculationMode === "amount" ? "total" : "amount")}
           >
             <ArrowUpDown className="h-3 w-3" />
@@ -171,24 +171,24 @@ export function TradingCalculator({
             placeholder="0.00"
             value={amount}
             onChange={(e) => handleAmountChange(e.target.value)}
-            className="pr-16"
+            className="pr-16 text-sm md:text-base"
             step="0.00000001"
           />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs md:text-sm text-muted-foreground">
             {baseCurrency}
           </span>
         </div>
       </div>
 
       {/* Percentage Buttons */}
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-4 gap-1 md:gap-2">
         {[25, 50, 75, 100].map((percentage) => (
           <Button
             key={percentage}
             variant="outline"
             size="sm"
             onClick={() => handlePercentageClick(percentage)}
-            className="transition-all duration-200 hover:scale-105"
+            className="transition-all duration-200 hover:scale-105 text-xs md:text-sm h-8 md:h-9"
           >
             {percentage}%
           </Button>
@@ -197,17 +197,17 @@ export function TradingCalculator({
 
       {/* Total */}
       <div className="space-y-2">
-        <label className="text-sm font-medium">Total</label>
+        <label className="text-xs md:text-sm font-medium">Total</label>
         <div className="relative">
           <Input
             type="number"
             placeholder="0.00"
             value={total}
             onChange={(e) => handleTotalChange(e.target.value)}
-            className="pr-16"
+            className="pr-16 text-sm md:text-base"
             step="0.01"
           />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs md:text-sm text-muted-foreground">
             {quoteCurrency}
           </span>
         </div>
@@ -215,21 +215,21 @@ export function TradingCalculator({
 
       {/* Calculation Summary */}
       <Card className="bg-muted/30 transition-all duration-200 hover:bg-muted/50">
-        <CardContent className="p-4 space-y-2">
-          <div className="flex justify-between text-sm">
+        <CardContent className="p-3 md:p-4 space-y-2">
+          <div className="flex justify-between text-xs md:text-sm">
             <span className="text-muted-foreground">Subtotal</span>
             <span className="font-medium">
               {formatPrice(calculationMode === "amount" ? numAmount * numPrice : numTotal)} {quoteCurrency}
             </span>
           </div>
-          <div className="flex justify-between text-sm">
+          <div className="flex justify-between text-xs md:text-sm">
             <span className="text-muted-foreground">Fee (0.1%)</span>
             <span className="font-medium text-orange-600">
               {formatPrice(fee)} {quoteCurrency}
             </span>
           </div>
           <div className="border-t pt-2">
-            <div className="flex justify-between font-medium">
+            <div className="flex justify-between font-medium text-xs md:text-sm">
               <span>Total {side === "buy" ? "Cost" : "Receive"}</span>
               <span className={side === "buy" ? "text-red-600" : "text-green-600"}>
                 {formatPrice(finalTotal)} {quoteCurrency}
