@@ -1,6 +1,6 @@
 # 🚀 Crypto Platform
 
-A modern, full-featured cryptocurrency trading and portfolio management platform built with Next.js 15 and TypeScript. Experience professional-grade crypto trading with real-time data, advanced charting, and intelligent portfolio insights.
+A modern, full-featured cryptocurrency trading and portfolio management platform built with Next.js 15 and TypeScript. Additionally Limit Management System is added. Experience professional-grade crypto trading with real-time data, advanced charting, and intelligent portfolio insights.
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -102,6 +102,75 @@ npm start
 
 ## 📱 Platform Overview
 
+## 🎯 LMS Module (Limit Management System)
+
+### 1. ⚡ Webhook & Real-time Simulation
+![LMS-DASHBOARD](https://github.com/user-attachments/assets/e77f85f7-8c8b-41dc-82aa-4ebf709a30c9)
+
+**Key Features:**
+- **Simulated Events** – Transaction/KYC/Alert/Limit events generator
+- **Indicators** – New data markers for refreshed lists
+- **Intervals** – Background timers for smart refresh cycles
+
+### 2. 🧠 Caching & Performance & Data Layer
+**Key Features:**
+- **TTL Cache** – Per-domain cache with lastFetch timestamps
+- **Smart Refresh** – Skip fetch when within TTL
+- **Granular TTLs** – Different lifetimes per data type
+- **REST (mock Django)** – `lmsRestAPI` for transactions, KYC, alerts, limit templates
+- **GraphQL (mock)** – `lmsGraphQL` for dashboard, alerts, and mutations
+- **Mutations** – Approve KYC, flag transaction, resolve alert (mocked)
+
+
+
+### 3. 🔎 Transactions Monitoring
+![LMS-Transactions](https://github.com/user-attachments/assets/581b7ef3-a7c9-4230-b2e3-6e617352b85e)
+
+**Key Features:**
+- **Filters** – Status, risk level, timeframe
+- **Risk Scores** – Badge, progress, and level labels
+- **Details** – Type, amount, USD value, addresses, location, KYC level
+- **Flagging** – Manual flag with reason and UI feedback
+
+### 4. 🪪 KYC Review
+![LMS-KYC](https://github.com/user-attachments/assets/ff57805a-4912-4cf6-a6ff-65675a723188)
+
+**Key Features:**
+- **Applications List** – Status, requested level, submitted at
+- **Documents** – File types and verification status
+- **Verification** – Score and risk factors
+- **Actions** – Approve (mock), notes, reviewer context
+
+### 5. 🚨 Risk Alerts
+![LMS-Risk](https://github.com/user-attachments/assets/18ad003a-8e76-47a0-8f59-c1363ee0e61f)
+
+**Key Features:**
+- **Severity** – Low/Medium/High/Critical with badges
+- **Entities** – Linked user and transaction
+- **Resolution** – Resolve flow (mock mutation)
+- **Distribution** – Dashboard aggregates and counts
+
+### 5. 🧰 Limit Templates
+![LMS-LimitConfig](https://github.com/user-attachments/assets/5415b7a2-5a4a-4b3b-9f5d-dcd36c50c642)
+
+**Key Features:**
+- **Per-Level Limits** – Daily/Monthly Withdrawal, Daily/Monthly Deposit, Single-Transaction
+- **Create Template Modal** – Name, description, user level, numeric inputs
+- **Live Preview** – Instant formatted preview of entered limits
+- **User Levels** – Unverified, Level 1, Level 2, Level 3
+
+### 6. 🛡️ Officer Tools
+**Key Features:**
+- **Examination Modals** – Deep dive for transactions and KYC
+- **Notes** – Add officer notes and review history
+- **Flags** – Active flags list with destructive styling
+- **Approve/Reject** – Action buttons for workflows
+
+
+
+
+
+## 🎯 CMS Module (Coin Management System)
 ### 1. 📊 Dashboard
 ![1- Dashboard](https://github.com/user-attachments/assets/99e917fa-c317-4eed-b9a4-6c5d0d00bc55)
 
